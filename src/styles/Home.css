@@ -1,0 +1,146 @@
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+
+.questions-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  background-color: #f9f9f9;
+}
+
+.tab {
+  flex: 1;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--light-text);
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab:hover {
+  background-color: white;
+  color: var(--text-color);
+}
+
+.tab.active {
+  color: #0066cc;
+  border-bottom-color: #0066cc;
+  background-color: white;
+}
+
+.questions-list {
+  padding: 20px;
+}
+
+.no-questions {
+  text-align: center;
+  color: var(--light-text);
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+.question-card {
+  display: block;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: white;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: #0066cc;
+}
+
+.question-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.question-author {
+  flex: 1;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.question-time {
+  font-size: 13px;
+  color: var(--light-text);
+}
+
+.question-body {
+  padding-left: 60px;
+}
+
+.question-text {
+  font-weight: 600;
+  color: var(--light-text);
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.option {
+  padding: 8px 0;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.divider {
+  text-align: center;
+  color: var(--light-text);
+  font-weight: 600;
+  margin: 12px 0;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .home-container {
+    padding: 12px;
+  }
+
+  .questions-list {
+    padding: 12px;
+  }
+
+  .question-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .question-body {
+    padding-left: 0;
+  }
+}
