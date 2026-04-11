@@ -20,6 +20,14 @@ function Leaderboard() {
     })
     .sort((a, b) => b.score - a.score);
 
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map((word) => word[0])
+      .join('')
+      .toUpperCase();
+  };
+
   return (
     <div className="leaderboard-container">
       <h1>Leaderboard</h1>
@@ -27,7 +35,25 @@ function Leaderboard() {
         {leaderboard.map((user, index) => (
           <div key={user.id} className="leaderboard-item">
             <div className="rank">{index + 1}</div>
-            <img src={user.avatarURL} alt={user.name} className="avatar" />
+            <div className="avatar-wrapper">
+              {user.avatarURL && user.avatarURL.trim() ? (
+                <img 
+                  src={user.avatarURL} 
+                  alt={user.name} 
+                  className="avatar"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextElementSibling.style.display = 'flex';
+                  }}
+                />
+              ) : null}
+              <div 
+                className="avatar-fallback"
+                style={{ display: !user.avatarURL || !user.avatarURL.trim() ? 'flex' : 'none' }}
+              >
+                {getInitials(user.name)}
+              </div>
+            </div>
             <div className="user-info">
               <h3>{user.name}</h3>
               <p className="user-id">@{user.id}</p>
