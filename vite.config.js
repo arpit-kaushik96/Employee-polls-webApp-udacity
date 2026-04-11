@@ -39,6 +39,15 @@ export default defineConfig({
     loader: "jsx",
     include: /src\/.*\.jsx?$/,
     exclude: [],
+    jsxImportSource: "react",
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        ".js": "jsx",
+      },
+      plugins: [],
+    },
   },
   resolve: {
     alias: {

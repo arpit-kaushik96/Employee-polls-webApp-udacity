@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthedUser } from '../slices/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { setAuthedUser, clearIntendedPath } from '../slices/authSlice';
 import '../styles/Login.css';
 
 function Login() {
@@ -8,7 +9,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const users = useSelector((state) => state.users.entities);
+  const intendedPath = useSelector((state) => state.auth.intendedPath);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,6 +29,14 @@ function Login() {
     }
 
     dispatch(setAuthedUser(username));
+    dispatch(clearIntendedPath());
+    
+    // Redirect to intended path or home
+    if (intendedPath) {
+      navigate(intendedPath);
+    } else {
+      navigate('/');
+    }
   };
 
   return (

@@ -9,6 +9,8 @@ import Home from './Home.jsx';
 import QuestionDetail from './QuestionDetail.jsx';
 import Leaderboard from './Leaderboard.jsx';
 import NewPoll from './NewPoll.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
+import NotFound from './NotFound.jsx';
 import '../styles/globals.css';
 
 function App() {
@@ -30,20 +32,33 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        {!authedUser ? (
-          <>
-            <Route path="/" element={<Login />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="/question/:id" element={<QuestionDetail />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/add" element={<NewPoll />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </>
-        )}
+        <Route path="/" element={!authedUser ? <Login /> : <Home />} />
+        <Route
+          path="/question/:id"
+          element={
+            <ProtectedRoute>
+              <QuestionDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/leaderboard"
+          element={
+            <ProtectedRoute>
+              <Leaderboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add"
+          element={
+            <ProtectedRoute>
+              <NewPoll />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

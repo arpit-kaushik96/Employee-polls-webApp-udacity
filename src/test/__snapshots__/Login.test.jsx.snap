@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Login Component > should render correctly and match snapshot 1`] = `
+<div>
+  <div
+    class="login-container"
+  >
+    <div
+      class="login-box"
+    >
+      <h1>
+        Employee Polls
+      </h1>
+      <p
+        class="login-subtitle"
+      >
+        Please login to continue
+      </p>
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            for="username"
+          >
+            Username
+          </label>
+          <select
+            class="form-control"
+            id="username"
+          >
+            <option
+              value=""
+            >
+              Select a user
+            </option>
+            <option
+              value="sarahedo"
+            >
+              Sarah Edo
+            </option>
+            <option
+              value="tylermcginnis"
+            >
+              Tyler McGinnis
+            </option>
+          </select>
+        </div>
+        <div
+          class="form-group"
+        >
+          <label
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            type="password"
+            value=""
+          />
+        </div>
+        <button
+          class="btn-login"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+      <div
+        class="demo-credentials"
+      >
+        <p>
+          Demo Credentials:
+        </p>
+        <ul>
+          <li>
+            sarah edo / password123
+          </li>
+          <li>
+            tyler mcginnis / abc321
+          </li>
+          <li>
+            mike tsamis / xyz123
+          </li>
+          <li>
+            zenobia oshikanlu / pass246
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
